@@ -1,6 +1,11 @@
-| Preview Builds | Release Builds | Mihon Support Server |
-|-------|----------|----------|
-| [![Preview](https://github.com/jobobby04/TachiyomiSYPreview/workflows/Remote%20Dispatch%20Build%20App/badge.svg)](https://github.com/jobobby04/TachiyomiSYPreview/releases) | [![stable release](https://img.shields.io/github/release/jobobby04/tachiyomisy.svg?maxAge=3600&label=download)](https://github.com/jobobby04/tachiyomisy/releases/latest) | [![Discord](https://img.shields.io/discord/1195734228319617024.svg?label=discord&labelColor=7289da&color=2c2f33&style=flat)](https://discord.gg/mihon) |
+> [!IMPORTANT]
+> ### 🚀 Looking for the working SyncYomi v2 Build?
+> The upstream release has not been updated with recent sync fixes. This repository provides a working build with **SyncYomi v2** fixes for syncing with **Suwayomi-Server**.
+> 👉 **[Download TachiyomiSY FOSS (SyncYomi v2 Fixed)](https://github.com/YoruByte/TachiyomiSY/releases/tag/preview-204-syncyomi-v2)**
+
+| SyncYomi v2 Build (Working) | Upstream Repo | Mihon Support Server |
+|:---:|:---:|:---:|
+| [![Download APK](https://img.shields.io/badge/Download_APK-SyncYomi_v2_(FOSS)-success?style=for-the-badge&logo=android)](https://github.com/YoruByte/TachiyomiSY/releases/tag/preview-204-syncyomi-v2) | [![Original Developer](https://img.shields.io/badge/Upstream-jobobby04-blue?style=for-the-badge&logo=github)](https://github.com/jobobby04/tachiyomisy) | [![Discord](https://img.shields.io/discord/1195734228319617024.svg?label=discord&labelColor=7289da&color=2c2f33&style=for-the-badge)](https://discord.gg/mihon) |
 
 
 # ![app icon](./.github/readme-images/app-icon.png)TachiyomiSY
