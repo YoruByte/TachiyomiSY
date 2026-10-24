@@ -3,9 +3,9 @@
 > The upstream release has not been updated with recent sync fixes. This repository provides a working build with **SyncYomi v2** fixes for syncing with **Suwayomi-Server**.
 > 👉 **[Download TachiyomiSY FOSS (SyncYomi v2 Fixed)](https://github.com/YoruByte/TachiyomiSY/releases/tag/preview-204-syncyomi-v2)**
 
-| SyncYomi v2 Build (Working) | Upstream Repo | Mihon Support Server |
+| Latest Release | All Releases | Issues |
 |:---:|:---:|:---:|
-| [![Download APK](https://img.shields.io/badge/Download_APK-SyncYomi_v2_(FOSS)-success?style=for-the-badge&logo=android)](https://github.com/YoruByte/TachiyomiSY/releases/tag/preview-204-syncyomi-v2) | [![Original Developer](https://img.shields.io/badge/Upstream-jobobby04-blue?style=for-the-badge&logo=github)](https://github.com/jobobby04/tachiyomisy) | [![Discord](https://img.shields.io/discord/1195734228319617024.svg?label=discord&labelColor=7289da&color=2c2f33&style=for-the-badge)](https://discord.gg/mihon) |
+| [![Download APK](https://img.shields.io/badge/Download_APK-SyncYomi_v2_(FOSS)-success?style=for-the-badge&logo=android)](https://github.com/YoruByte/TachiyomiSY/releases/tag/preview-204-syncyomi-v2) | [![Releases](https://img.shields.io/badge/All_Releases-YoruByte-blue?style=for-the-badge&logo=github)](https://github.com/YoruByte/TachiyomiSY/releases) | [![Issues](https://img.shields.io/badge/Report_Issue-GitHub-red?style=for-the-badge&logo=github)](https://github.com/YoruByte/TachiyomiSY/issues) |
 
 
 # ![app icon](./.github/readme-images/app-icon.png)TachiyomiSY
@@ -70,50 +70,40 @@ Additional features for some extensions, features include custom description, op
 * LANraragi
 
 ## Download
-Get the app from our [releases page](https://github.com/jobobby04/tachiyomisy/releases/latest).
+Get the app from our [Releases page](https://github.com/YoruByte/TachiyomiSY/releases).
 
-If you want to try new features before they get to the stable release, you can download the preview version [here](https://github.com/jobobby04/tachiyomisypreview/releases).
+* **Latest FOSS Release (SyncYomi v2 Fixed):** [Download APK here](https://github.com/YoruByte/TachiyomiSY/releases/tag/preview-204-syncyomi-v2)
 
 ## Translation
-Feel free to translate the project on [Weblate](https://hosted.weblate.org/projects/mihon/tachiyomisy/)
-
-<details><summary>Translation Progress</summary>
-<a href="https://hosted.weblate.org/engage/mihon/">
-<img src="https://hosted.weblate.org/widgets/mihon/-/tachiyomisy/multi-auto.svg" alt="Translation status" />
-</a>
-</details>
+Translations and language updates can be contributed directly to this repository via [Pull Requests](https://github.com/YoruByte/TachiyomiSY/pulls).
 
 ## Issues, Feature Requests and Contributing
 
-Please make sure to read the full guidelines. Your issue may be closed without warning if you do not.
+Please make sure to read the full guidelines before submitting.
 
 <details><summary>Issues</summary>
 
-1. **Before reporting a new issue, take a look at the [FAQ](https://mihon.app/docs/faq/general), the [changelog](https://github.com/jobobby04/tachiyomisy/releases) and the already opened [issues](https://github.com/jobobby04/tachiyomisy/issues).**
-2. If you are unsure, ask here: [![Discord](https://img.shields.io/discord/1195734228319617024.svg)](https://discord.gg/mihon)
+1. **Before reporting a new issue, check the [Changelog / Releases](https://github.com/YoruByte/TachiyomiSY/releases) and the already opened [issues](https://github.com/YoruByte/TachiyomiSY/issues).**
 
 </details>
 
 <details><summary>Bugs</summary>
 
 * Include version (More → About → Version)
-* If not latest, try updating, it may have already been solved
-* Preview version is equal to the number of commits as seen on the main page
-* Include steps to reproduce (if not obvious from description)
-* Include screenshot (if needed)
-* If it could be device-dependent, try reproducing on another device (if possible)
+* If not latest, try updating to the latest release
+* Include steps to reproduce
+* Include screenshot and crash logs (if needed)
 * Don't group unrelated requests into one issue
 
-Use the [issue forms](https://github.com/jobobby04/TachiyomiSY/issues/new/choose) to submit a bug.
+Use the [issue tracker](https://github.com/YoruByte/TachiyomiSY/issues/new/choose) to submit a bug.
 
 </details>
 
 <details><summary>Feature Requests</summary>
 
-* Write a detailed issue, explaining what it should do or how. Avoid writing just "like X app does"
-* Include screenshot (if needed)
+* Write a detailed issue explaining what it should do.
+* Submit via the [issue tracker](https://github.com/YoruByte/TachiyomiSY/issues/new/choose).
 
-Source requests are not accepted.
 </details>
 
 <details><summary>Contributing</summary>
