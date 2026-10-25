@@ -1,0 +1,94 @@
+name: Build_FOSS_Cloud
+
+on:
+  push:
+    branches:
+      - master
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  build_foss:
+    name: Build_And_Sign_FOSS
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout_Repository
+        uses: actions/checkout@v4
+
+      - name: Setup_JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: 21
+          distribution: temurin
+
+      - name: Setup_Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Build_FOSS_APK
+        run: |
+          ./gradlew assembleFoss
+
+      - name: Sign_APKs
+        env:
+          SIGNING_KEY_BASE64: ${{ secrets.SIGNING_KEY }}
+          KEY_STORE_PASSWORD: ${{ secrets.KEY_STORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+        run: |
+          mkdir -p release_assets
+          echo "$SIGNING_KEY_BASE64" | base64 -d > /tmp/All_APK_Signed.jks
+          
+          # Find apksigner
+          APKSIGNER=$(find $ANDROID_SDK_ROOT/build-tools -name apksigner | sort -V | tail -n 1)
+          echo "Using apksigner: $APKSIGNER"
+
+          for apk in app/build/outputs/apk/foss/*.apk; do
+            [ -f "$apk" ] || continue
+            filename=$(basename "$apk")
+            
+            # Create clean underscore name
+            clean_name=$(echo "$filename" | sed 's/app-/TachiyomiSY_/g' | sed 's/-unsigned.apk/_signed.apk/g' | tr '-' '_')
+            
+            echo "Signing $filename -> $clean_name"
+            $APKSIGNER sign \
+              --ks /tmp/All_APK_Signed.jks \
+              --ks-key-alias "$KEY_ALIAS" \
+              --ks-pass "pass:$KEY_STORE_PASSWORD" \
+              --key-pass "pass:$KEY_PASSWORD" \
+              --out "release_assets/$clean_name" \
+              "$apk"
+          done
+          
+          rm -f /tmp/All_APK_Signed.jks
+
+      - name: Upload_Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: TachiyomiSY_FOSS_APKs
+          path: release_assets/*.apk
+
+      - name: Create_GitHub_Release
+        uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/') || github.event_name == 'workflow_dispatch' || github.ref == 'refs/heads/master'
+        with:
+          tag_name: ${{ startsWith(github.ref, 'refs/tags/') && github.ref_name || format('build_{0}', github.run_number) }}
+          name: ${{ startsWith(github.ref, 'refs/tags/') && github.ref_name || format('TachiyomiSY Build {0}', github.run_number) }}
+          body: |
+            ## 🚀 TachiyomiSY FOSS Automated Cloud Build
+            * **Commit:** `${{ github.sha }}`
+            * **Signed with:** `All_APK_Signed.jks`
+            * **Architectures Included:** `arm64_v8a`, `universal`, `armeabi_v7a`, `x86`, `x86_64`
+          files: release_assets/*.apk
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
